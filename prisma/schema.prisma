@@ -1,0 +1,36 @@
+// Schema do banco de dados (SQLite, arquivo local, zero configuração)
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id        String   @id @default(cuid())
+  nome      String
+  email     String   @unique
+  senhaHash String
+  // SQLite não suporta enum no Prisma, então usamos String com os valores "USUARIO" ou "ADMIN"
+  papel     String   @default("USUARIO")
+  criadoEm  DateTime @default(now())
+}
+
+model Livro {
+  id          String   @id @default(cuid())
+  titulo      String
+  autor       String
+  categoria   String   // ex: "Devocional", "Teologia", "Biografia", "Clássico"
+  descricao   String?
+  capaUrl     String?  // URL da capa (opcional)
+  pdfUrl      String   // link direto para o PDF (hospedado ou externo)
+  fonte       String   @default("MANUAL") // MANUAL ou GUTENDEX
+  fonteId     String?  // id externo, usado p/ evitar duplicar importações do Gutendex
+  destaque    Boolean  @default(false)
+  criadoPorId String?  // id do usuário que cadastrou o livro (qualquer usuário logado pode cadastrar)
+  criadoEm    DateTime @default(now())
+
+  @@unique([fonte, fonteId])
+}

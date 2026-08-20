@@ -1,0 +1,29 @@
+{
+  "name": "gospel-books",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "prisma generate && prisma db push && node prisma/seed.js && next dev",
+    "build": "next build",
+    "start": "next start",
+    "seed": "node prisma/seed.js",
+    "importar-gutendex": "node scripts/importar-gutendex.js",
+    "postinstall": "prisma generate",
+    "db:setup": "prisma generate && prisma db push && node prisma/seed.js"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "next": "14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "prisma": "^5.20.0"
+  }
+}

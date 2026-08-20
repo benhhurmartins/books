@@ -1,0 +1,9 @@
+{
+  "/livros/novo/page": "app/livros/novo/page.js",
+  "/livros/[id]/page": "app/livros/[id]/page.js",
+  "/page": "app/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/api/livros/route": "app/api/livros/route.js",
+  "/api/importar-gutendex/route": "app/api/importar-gutendex/route.js",
+  "/api/busca-externa/route": "app/api/busca-externa/route.js"
+}

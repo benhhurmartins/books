@@ -1,6 +1,6 @@
 {
-  "/api/busca-externa/route": "app/api/busca-externa/route.js",
   "/livros/novo/page": "app/livros/novo/page.js",
+  "/page": "app/page.js",
   "/api/livros/route": "app/api/livros/route.js",
-  "/page": "app/page.js"
+  "/api/busca-externa/route": "app/api/busca-externa/route.js"
 }
